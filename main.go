@@ -3,7 +3,16 @@ package main
 import "fmt"
 
 func main() {
-	const name, age = "kim", 22
-	fmt.Println("Hello, 世界")
-	fmt.Printf("%s is %d year old", name, age)
+	for i := 1; i < 100; i++ {
+		switch {
+		case i%3 == 0 && i%5 == 0:
+			fmt.Println("fizz buzz")
+		case i%3 == 0:
+			fmt.Println("fizz")
+		case i%5 == 0:
+			fmt.Println("buzz")
+		default:
+			fmt.Println(i)
+		}
+	}
 }
