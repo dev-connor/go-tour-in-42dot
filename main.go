@@ -2,17 +2,21 @@ package main
 
 import "fmt"
 
+func add(a, b int) int {
+	return a + b
+}
+
+func mul(a, b int) int64 {
+	return int64(a) * int64(b)
+}
+
 func main() {
-	for i := 1; i < 100; i++ {
-		switch {
-		case i%3 == 0 && i%5 == 0:
-			fmt.Println("fizz buzz")
-		case i%3 == 0:
-			fmt.Println("fizz")
-		case i%5 == 0:
-			fmt.Println("buzz")
-		default:
-			fmt.Println(i)
-		}
-	}
+	fmt.Println(add(1, 2))
+	fmt.Println(mul(2, 3))
+
+	/*
+	   if val, err := div(2, 3); err == nil {
+	       fmt.Println(val)
+	   }
+	*/
 }
