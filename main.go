@@ -15,31 +15,20 @@ type person struct {
 	gender gender
 }
 
-func (p person) print() {
+func (p person) print() { // value receiver
 	fmt.Printf("%s/%v (%d)\n", p.name, p.gender, p.age)
 }
 
-func (p employee) print() {
-	fmt.Println("employee info:")
-	p.person.print()
-}
-
-// struct embedding
-type employee struct {
-	person
-	department string
-}
-
 func main() {
-	println()
-	scryner := employee{
-		person: person{
-			name:   "scryner",
-			age:    38,
-			gender: male,
-		},
-		department: "Naver Labs",
+	elsa := person{"Elsa", 21, female}
+	elsa.print()
+}
+
+// implements fmt.Stringer interface
+func (gender gender) String() string {
+	if gender == male {
+		return "male"
 	}
 
-	scryner.print()
+	return "female"
 }
