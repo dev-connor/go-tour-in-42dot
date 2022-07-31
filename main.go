@@ -15,24 +15,31 @@ type person struct {
 	gender gender
 }
 
-func (p person) print() { // value receiver
+func (p person) print() {
 	fmt.Printf("%s/%v (%d)\n", p.name, p.gender, p.age)
 }
 
-func (p *person) aging() { // pointer receiver
-	p.age++
+func (p employee) print() {
+	fmt.Println("employee info:")
+	p.person.print()
+}
+
+// struct embedding
+type employee struct {
+	person
+	department string
 }
 
 func main() {
-	elsa := person{"Elsa", 21, female}
-	anna := person{
-		name:   "Anna",
-		age:    18,
-		gender: female,
+	println()
+	scryner := employee{
+		person: person{
+			name:   "scryner",
+			age:    38,
+			gender: male,
+		},
+		department: "Naver Labs",
 	}
 
-	elsa.print()
-
-	anna.aging()
-	anna.print()
+	scryner.print()
 }
